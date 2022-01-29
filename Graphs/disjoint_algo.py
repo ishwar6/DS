@@ -1,7 +1,7 @@
 class UnionFind:
 
     """
-        UnionFind Class to implement Disjoint Set Data Structure of Graph.
+        UnionFind Class to implement "QuickFind" Disjoint Set Data Structure of Graph.
         Note: N is the number of vertices in the graph.
         => When initializing a union-find constructor, we need to create an array of size N with the values
         equal to the corresponding array indices; this requires linear time.
