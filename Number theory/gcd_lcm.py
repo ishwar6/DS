@@ -49,3 +49,28 @@ for iter_cnt, item in enumerate([2, None, -10, None, 4, 8]):
         none_indices.append(iter_cnt)
 
 # `none_indices` now stores: [1, 3]
+# t = int(input())
+# while t:
+#     n, m = map(int, input().split())
+#     print(n, m)
+
+
+def gcd(a, b):
+    print("Calling Euclid Division Lemma for", a, b)
+    if a == 0:
+        print("GCD is ", b)
+        return b
+    else:
+        return gcd(b % a, a)
+
+
+#print(gcd(225, 135))
+
+
+def lcm(a, b):
+    product = a*b
+    hcf = gcd(a, b)
+    return product//hcf
+
+
+#print(lcm(2, 0))
