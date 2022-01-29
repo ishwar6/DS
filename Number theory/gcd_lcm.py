@@ -40,6 +40,7 @@ x, y, z = my_list
 
 
 # using the `enumerate` function to keep iteration-count
+# Enumerate returns tuple if unpacked.
 none_indices = []
 
 # note the use of iterable unpacking!
