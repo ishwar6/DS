@@ -43,6 +43,9 @@ class UnionFind:
         if(rootX != rootY):
             self.root[rootY] = rootX
 
+    def quick_is_connected(self, x, y) -> bool:
+        return self.find_root_quick_union(x) == self.find_root_quick_union(y)
+
 
 def test():
     graph_array = UnionFind(10)
