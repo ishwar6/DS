@@ -38,33 +38,19 @@ class UnionFind:
         return node
 
     def quick_union(self, x, y) -> None:
-        rootX = self.find_root_quick_union(self, x)
-        rootY = self.find_root_quick_union(self, y)
+        print("calling for", x, y)
+        rootX = self.find_root_quick_union(x)
+        rootY = self.find_root_quick_union(y)
+        print("currently Parent root of {} and {} are".format(rootX, rootY))
         if(rootX != rootY):
             self.root[rootY] = rootX
+        rootX = self.find_root_quick_union(x)
+        rootY = self.find_root_quick_union(y)
+        print("Finally Parent root of {} and {} are {} and {}".format(
+            x, y, rootX, rootY))
 
     def quick_is_connected(self, x, y) -> bool:
         return self.find_root_quick_union(x) == self.find_root_quick_union(y)
-
-
-def test():
-    graph_array = UnionFind(10)
-    uf = graph_array
-
-    # add elements
-    uf.quick_union(1, 2)
-    uf.quick_union(1, 2)
-    uf.quick_union(2, 5)
-    uf.quick_union(5, 6)
-    uf.quick_union(6, 7)
-    uf.quick_union(3, 8)
-    uf.quick_union(8, 9)
-    print(uf.is_connected(1, 5))  # true
-    print(uf.is_connected(5, 7))  # true
-    print(uf.is_connected(4, 9))  # false
-    # 1-2-5-6-7 3-8-9-4
-    uf.union(9, 4)
-    print(uf.is_connected(4, 9))  # true
 
 
 def quick_union_test():
@@ -72,11 +58,32 @@ def quick_union_test():
     uf = graph_array
 
     # add elements
+    uf.quick_union(1, 2)
+    uf.quick_union(1, 9)
+    uf.quick_union(2, 5)
+    uf.quick_union(5, 6)
+    uf.quick_union(5, 7)
+    uf.quick_union(3, 8)
+    uf.quick_union(8, 9)
+    print(uf.quick_is_connected(1, 5))  # true
+    print(uf.quick_is_connected(5, 7))  # true
+    print(uf.quick_is_connected(4, 9))  # false
+    # 1-2-5-6-7 3-8-9-4
+    uf.quick_union(9, 4)
+    print(uf.is_connected(4, 9))  # true
+    print(uf.root)
+
+
+def test():
+    graph_array = UnionFind(10)
+    uf = graph_array
+
+    # add elements
     uf.union(1, 2)
-    uf.union(1, 2)
+    uf.union(1, 9)
     uf.union(2, 5)
     uf.union(5, 6)
-    uf.union(6, 7)
+    uf.union(5, 7)
     uf.union(3, 8)
     uf.union(8, 9)
     print(uf.is_connected(1, 5))  # true
@@ -85,6 +92,8 @@ def quick_union_test():
     # 1-2-5-6-7 3-8-9-4
     uf.union(9, 4)
     print(uf.is_connected(4, 9))  # true
+    print(uf.root)
 
 
-# test()
+quick_union_test()
+test()
