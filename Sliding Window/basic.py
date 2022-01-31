@@ -25,3 +25,34 @@ def sliding_window_brute_force(l, k):
 # 15
 
 # time complexity is O(N*K) ( n is list size and k is window size )
+
+
+def fast_sliding_window(l, k):
+    """
+    we don't repeat addition which are not required. 
+    to reuse the sum from the previous subarray, 
+    we will subtract the element going out of the window and add the element now being included in the sliding window. 
+    This will save us from going through the whole subarray to find the sum and, 
+    as a result, the algorithm complexity will reduce to O(N).
+    """
+
+    window_sum, window_start = 0, 0
+    window_sum_list = []
+
+    for i in range(0, len(l)):
+        window_sum += l[i]
+        # the only loop will run till end of the list and only once. We never re-add any element.
+        # check if window size matches with i; Once it matches we will keep the window size = k
+        # and if will trigger every time i increases but k will keep window size constant.
+        if(i >= k-1):
+            print(i, window_sum_list)
+
+            # append the result in our answer list
+            window_sum_list.append(window_sum)
+            # remove the element that move out of the window
+            window_sum -= l[window_start]
+            window_start += 1  # slide the window by one element
+    print(window_sum_list)
+
+
+fast_sliding_window([1, 2, 3, 4, 5, 6], 3)
