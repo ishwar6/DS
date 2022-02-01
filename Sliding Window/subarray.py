@@ -78,7 +78,9 @@ def smallest_subarray_with_given_sum(arr, s):
 # smallest_subarray_with_given_sum([3, 4, 1, 1, 6], 8)
 # smallest_subarray_with_given_sum([2, 1, 5, 2, 3, 2], 7)
 # smallest_subarray_with_given_sum([2, 1, 5, 2, 8], 7)
-
+# 3 8
+# 2 7
+# 1 8
 
 def smallest_subarray_with_sum_s(arr, s):
     i, window_sum, window_end, result_sum = 0, 0, 0, 0
@@ -99,9 +101,12 @@ def smallest_subarray_with_sum_s(arr, s):
                 break
             window_sum += arr[i]
             i += 1
-    print(min_size, result_sum)
+   # print(min_size, result_sum)
 
 
 smallest_subarray_with_sum_s([3, 4, 1, 1, 6], 8)
 smallest_subarray_with_sum_s([2, 1, 5, 2, 3, 2], 7)
 smallest_subarray_with_sum_s([2, 1, 5, 2, 8], 7)
+# 3 8
+# 2 7
+# 1 8
