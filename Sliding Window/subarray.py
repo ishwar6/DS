@@ -1,5 +1,8 @@
 # Given an array of positive numbers and a positive number ‘k’, find the maximum sum of any contiguous subarray of size ‘k’.
 
+import math
+
+
 def max_subarray(arr, k):
     '''
     [1,2,3,4,5,6]
@@ -72,6 +75,33 @@ def smallest_subarray_with_given_sum(arr, s):
     return -1
 
 
-smallest_subarray_with_given_sum([3, 4, 1, 1, 6], 8)
-smallest_subarray_with_given_sum([2, 1, 5, 2, 3, 2], 7)
-smallest_subarray_with_given_sum([2, 1, 5, 2, 8], 7)
+# smallest_subarray_with_given_sum([3, 4, 1, 1, 6], 8)
+# smallest_subarray_with_given_sum([2, 1, 5, 2, 3, 2], 7)
+# smallest_subarray_with_given_sum([2, 1, 5, 2, 8], 7)
+
+
+def smallest_subarray_with_sum_s(arr, s):
+    i, window_sum, window_end, result_sum = 0, 0, 0, 0
+    min_size = math.inf
+
+    while(i <= len(arr)):
+
+        if(window_sum >= s):
+
+            if(min_size > i-window_end):
+                min_size = i-window_end
+                result_sum = window_sum
+
+            window_sum -= arr[window_end]
+            window_end += 1
+        else:
+            if(i > len(arr)-1):
+                break
+            window_sum += arr[i]
+            i += 1
+    print(min_size, result_sum)
+
+
+smallest_subarray_with_sum_s([3, 4, 1, 1, 6], 8)
+smallest_subarray_with_sum_s([2, 1, 5, 2, 3, 2], 7)
+smallest_subarray_with_sum_s([2, 1, 5, 2, 8], 7)
