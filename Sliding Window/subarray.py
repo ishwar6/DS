@@ -3,11 +3,11 @@
 def max_subarray(arr, k):
     '''
     [1,2,3,4,5,6]
-    Time Complexity 
+    Time Complexity
         The time complexity of this algorithm will be O(N).
 
-    Space Complexity 
-        The algorithm runs in constant space O(1).  
+    Space Complexity
+        The algorithm runs in constant space O(1).
     '''
     window_start, window_sum, result_index = 0, 0, 0
     window_max = 0
@@ -46,5 +46,32 @@ def max_subarray(arr, k):
 
 
 def smallest_subarray_with_given_sum(arr, s):
+    i, window_end, window_sum, result_sum = 0, 0, 0, 0
+    min_window_size = 9900000000
+
+    while(i <= len(arr)):
+
+        if(window_sum >= s):
+
+            if(min_window_size > i-window_end):
+                #    print("sizeee", i, window_end)
+                min_window_size = i-window_end
+                result_sum = window_sum
+          #  print("SUM", window_sum, arr[window_end])
+            window_sum -= arr[window_end]
+            window_end += 1
+        #    print("size", min_window_size, window_end)
+        else:
+           # print("i is", i)
+            if(i > len(arr)-1):
+                break
+            window_sum += arr[i]
+            i += 1
+    print(min_window_size, result_sum)
 
     return -1
+
+
+smallest_subarray_with_given_sum([3, 4, 1, 1, 6], 8)
+smallest_subarray_with_given_sum([2, 1, 5, 2, 3, 2], 7)
+smallest_subarray_with_given_sum([2, 1, 5, 2, 8], 7)
