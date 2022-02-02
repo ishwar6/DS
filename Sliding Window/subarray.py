@@ -44,6 +44,7 @@ def max_subarray(arr, k):
 
 # max_subarray([2, 1, 5, 1, 3, 2], 3)  # [5,1,3] with sum 9
 # max_subarray([2, 3, 4, 1, 5], 2)  # [3,4] with sum 7
+#max_subarray([2, 3, 4, 1, 5], 2)  # [3,4] with sum 7
 
  # Variable Window Size: smallest contiguous subarray whose sum is greater than or equal to given target ‘S’
 
