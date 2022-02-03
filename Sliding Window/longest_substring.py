@@ -3,6 +3,7 @@
 
 
 def longest_substring_with_k_distinct_character(str, k=0):
+
     window_start, window_end, max_length = 0, 0, 0
     frequency_char = {}
 
@@ -21,6 +22,11 @@ def longest_substring_with_k_distinct_character(str, k=0):
         max_length = max(max_length, window_end-window_start+1)
     print(max_length)
     return max_length
+
+"""
+The time complexity of the above algorithm will be O(N)
+The space complexity of the algorithm is O(K), as we will be storing a maximum of ‘K+1’ characters in the HashMap.
+"""
 
 
 longest_substring_with_k_distinct_character("araaci", k=2)
