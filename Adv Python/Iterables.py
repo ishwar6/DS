@@ -61,6 +61,7 @@ class Reverse:
 
     def __next__(self):
         # it reduces the index by one and get element from the list present at the index. It first checks for 0 to raise StopIteration.
+        print('run')
         if self.index == 0:
             raise StopIteration
         self.index = self.index - 1
@@ -69,5 +70,17 @@ class Reverse:
 
 lst = [34, 978, 42]
 lst_backwards = Reverse(lst)
+# we have made our lst_backwards (which is an object of Reverse class) an iterable. It is __iter__ which makes a method iterable.
+
+
 for el in lst_backwards:
     print(el)
+
+# This object was not iterable previously. Try to comment out iter and next method.
+#  for el in lst_backwards:
+#     TypeError: 'Reverse' object is not iterable
+
+
+# it __next__ is not present.
+#  for el in lst_backwards:
+# TypeError: iter() returned non-iterator of type 'Reverse'
