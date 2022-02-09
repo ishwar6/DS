@@ -144,3 +144,5 @@ def test_rank():
     # 1-2-5-6-7 3-8-9-4
     uf.union(9, 4)
     print(uf.connected(4, 9))  # true
+
+test_rank()
