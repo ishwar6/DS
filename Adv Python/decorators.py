@@ -7,7 +7,8 @@ def decorator_function(funtion_on_which_decorator_to_be_called):
         print("Function running is: {}".format(
             funtion_on_which_decorator_to_be_called.__name__))
         print("aa")
-        return funtion_on_which_decorator_to_be_called()
+    #    funtion_on_which_decorator_to_be_called()
+        return 1
     print("v")
     return wrapper_function
 
