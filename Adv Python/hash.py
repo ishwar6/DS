@@ -87,3 +87,72 @@ def test():
     for count, ele in enumerate(l1):
         print(count)
         print(ele)
+
+
+# [4,2,3,1,1,2,4,2,2]
+# 4, 2
+# 2,4
+
+
+def print_count(number):
+    number_dict = [[i, number.count(i)] for i in set(number)]
+
+    # for i in number:
+    #     number_dict[i] = number.count(i)
+
+    print(number_dict)
+
+
+#print_count([4, 2, 3, 1, 1, 2, 4, 2, 2])
+
+# input - 1000 x 2000
+# max reso - 500 x 500
+# output - 250 x 500
+# 500,1000
+# 250,500
+l = [1, 2]
+l2 = l
+l2[1] = 's'
+print(l, l2)
+# id(l)==id(l2)
+
+# Student.objects.all()
+
+# def same_aspect_ratio(x, y):
+#     X_MAX = 500
+#     ratio = x/y
+#     print(ratio)
+#     if ratio > 1:
+#         temp_x, temp_y = X_MAX, X_MAX/ratio
+#     else:  # x is smaller
+#         temp_x, temp_y = X_MAX*ratio, X_MAX
+
+#     print(temp_x, temp_y)
+
+
+# same_aspect_ratio(1080, 1920)
+
+
+def unique(string):
+    # Assuming character set is ASCII (128 characters)
+    if len(string) > 128:
+        return False
+
+    char_set = [False for _ in range(128)]
+    print(char_set)
+   # print(char_set)
+    for char in string:
+        val = ord(char)
+        if char_set[val]:
+            print(char_set[val])
+            # Char already found in string
+            return False
+        char_set[val] = True
+    print(char_set)
+
+    return True
+
+
+a = tuple(1, 2)
+
+# print(unique("Abcsd"))
