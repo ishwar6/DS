@@ -153,6 +153,19 @@ def unique(string):
     return True
 
 
-a = tuple(1, 2)
+a = dict(name="ishwar", class_="a")
+for i in a.items():
+    print((i))
+
+
+#     ('name', 'ishwar')
+# ('class_', 'a')
+
 
 # print(unique("Abcsd"))
+
+s = set([1, 2, 3, 4, 5, 3, 2, 2])
+
+
+a = set(['a', 'b'])
+print(a.intersection(['a']))
