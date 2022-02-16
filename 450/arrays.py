@@ -14,3 +14,4 @@ def IsUnique(string) -> bool:
 
 
 def IsUnique(string):
+    # if UTF-8 vs ASSCI
