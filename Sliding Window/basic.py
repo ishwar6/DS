@@ -8,6 +8,7 @@ def sliding_window_brute_force(l, k):
     so range(0,4) = 0,1,2,3 (will run till 3)
     so we run range till len(l) - k + 1
     1 is needed because last element is not counted in range. 
+    Revisited
     """
    # print(l,k)
 
