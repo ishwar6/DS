@@ -1,3 +1,4 @@
+import asyncio
 from threading import *
 
 
@@ -7,7 +8,7 @@ def display():
 
 
 t = Thread(target=display)
-t.start()
+# t.start()
 
 
 def display_p():
@@ -15,7 +16,7 @@ def display_p():
         print("main thread")
 
 
-display_p()
+# display_p()
 
 
 def fib(n):
@@ -26,5 +27,11 @@ def fib(n):
     return fib(n-1)+fib(n-2)
 
 
-for i in range(10):
-    print(fib(i))
+async def main():
+    print('hi')
+
+
+async def foo():
+    print("foooo")
+print(foo())
+asyncio.run(main())
