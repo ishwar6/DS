@@ -81,4 +81,61 @@ class ParkingAttendent(Account):
 # 1) Handicapped, 2) Compact, 3) Large, 4) Motorcycle, and 5) Electric.
 
 
+# At a high level, an interface acts as a blueprint for designing classes.
+# Like classes, interfaces define methods. Unlike classes, these methods are abstract.
+# An abstract method is one that the interface simply defines. It doesn’t implement the methods.
+# This is done by classes, which then implement the interface and give concrete meaning to the interface’s abstract methods.
+# Python further deviates from other languages in one other aspect.
+# It doesn’t require the class that’s implementing the interface to define all of the interface’s abstract methods.
+
+# parking spot can assign vehicle and remove vehicle.
+# parking spot will use above class parkingspottype to declare parking_spot_type
+
 class ParkingSpot:
+    def __init__(self, number, parking_spot_type):
+        self.__number = number
+        self.__free = True
+        self.__vehicle = None
+        self.__parking_spot_type = parking_spot_type
+
+    def is_free(self):
+        return self.__free
+
+    def assign_vehicle(self, vehicle):
+        self.__vehicle = vehicle
+        free = False
+
+    def remove_vehicle(self):
+        self.__vehicle = None
+        free = True
+
+
+class HandicappedSpot(ParkingSpot):
+    def __init__(self, number):
+        super().__init__(number, ParkingSpotType.HANDICAPPED)
+
+
+class CompactSpot(ParkingSpot):
+    def __init__(self, number):
+        super().__init__(number, ParkingSpotType.COMPACT)
+
+
+class LargeSpot(ParkingSpot):
+    def __init__(self, number):
+        super().__init__(number, ParkingSpotType.LARGE)
+
+
+class MotorbikeSpot(ParkingSpot):
+    def __init__(self, number):
+        super().__init__(number, ParkingSpotType.MOTORBIKE)
+
+
+class ElectricSpot(ParkingSpot):
+    def __init__(self, number):
+        super().__init__(number, ParkingSpotType.ELECTRIC)
+
+
+# Vehicle: Here is the definition for Vehicle and all of its child classes:
+# Vehicle: Vehicles will be parked in the parking spots.
+#  Our system will support different types of vehicles
+#   1) Car, 2) Truck, 3) Electric, 4) Van and 5) Motorcycle.
