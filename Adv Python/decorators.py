@@ -1,22 +1,40 @@
-# it accepts a function as arg, call it in wrapper function and returns that wrapper function
-# use @function_name to apply it on other function
-def decorator_function(funtion_on_which_decorator_to_be_called):
-    print("a")
-
-    def wrapper_function():
-        print("Function running is: {}".format(
-            funtion_on_which_decorator_to_be_called.__name__))
-        print("aa")
-    #    funtion_on_which_decorator_to_be_called()
-        return 1
-    print("v")
-    return wrapper_function
+global top
+top = -1
+my_list = []
 
 
-def display():
-    print("display")
+def enque(my_list, data, top):
+
+    my_list.append(data)
+    top += 1
+    return my_list
 
 
-decorated_function = decorator_function(display)
+def deque(my_list, top):
+    length = top
+    if top == 0:
+        top -= 1
+        return my_list[0]
 
-decorated_function()
+    if top == -1:
+        return None
+
+    temp = []
+
+    while length >= 0:
+        temp_top = my_list[length]
+        temp.append(temp_top)
+        length -= 1
+    data = temp[len(temp)-1]
+    print(temp)
+    my_list = temp[::-1]
+    print(my_list)
+    top -= 1
+    return data
+
+
+enque(my_list, 1, 0)
+enque(my_list, 12, 1)
+enque(my_list, 14, 2)
+deque(my_list, 1)
+print(my_list, 0)
