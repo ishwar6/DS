@@ -154,6 +154,7 @@ def unique(string):
 
 
 a = dict(name="ishwar", class_="a")
+a = dict(name="ishwar", class_="a")
 for i in a.items():
     print((i))
 
